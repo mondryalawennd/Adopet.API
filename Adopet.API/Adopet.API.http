@@ -1,0 +1,6 @@
+@Adopet.API_HostAddress = http://localhost:5253
+
+GET {{Adopet.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

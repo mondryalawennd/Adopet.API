@@ -1,0 +1,27 @@
+﻿using Adopet.Console.Util;
+
+namespace Adopet.Console.Commands
+{
+    [DocComandoAttribute(instrucao: "show",
+       documentacao: "adopet show <ARQUIVO> comando que exibe no terminal o conteúdo do arquivo importado.")]
+    internal class Show:IComando
+    {
+        public Task ExecutarAsync(string[] args)
+        {
+            this.ExibeConteudoArquivo(caminhoDoArquivoASerExibido: args[1]); 
+            return Task.CompletedTask;
+        }
+
+        private void ExibeConteudoArquivo(string caminhoDoArquivoASerExibido)
+        {
+            var leitor = new LeitorDeArquivo();
+            var listaDepets = leitor.RealizaLeitura(caminhoDoArquivoASerExibido);
+            foreach (var pet in listaDepets)
+            {
+                System.Console.WriteLine(pet);
+            }
+
+
+        }
+    }
+}
