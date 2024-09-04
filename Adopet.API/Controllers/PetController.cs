@@ -12,8 +12,8 @@ namespace Adopet.API.Controllers
     public class PetController: ControllerBase
     {
         [HttpGet]
-        [Route("GetList")]
-        public async Task<IResult> GetList()
+        [Route("list")]
+        public async Task<IResult> list()
         {
             var _logger = new LoggerConfiguration()
                   .WriteTo.Console()
@@ -40,7 +40,7 @@ namespace Adopet.API.Controllers
 
         [HttpPost]
         [Route("add")]
-        public async Task<IResult> CadatrarPet([FromBody] Pet pet)
+        public async Task<IResult> add([FromBody] Pet pet)
         {
             var configuration = new ConfigurationBuilder()
                                    .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
